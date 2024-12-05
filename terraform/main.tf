@@ -6,7 +6,6 @@ provider "aws" {
   region = "us-east-1"
 }
 data "aws_availability_zones" "available" {}
-
 locals {
   cluster_name = var.clusterName
 }
