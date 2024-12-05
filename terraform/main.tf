@@ -1,27 +1,16 @@
-terraform {
-  required_version = ">= 1.0.0"
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = ">= 2.0" 
-    }
-    random = {
-      source = "hashicorp/random"
-      version = ">= 3.0"
-    }
-  }
+provider "kubernetes" {
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
 
-resource "aws_instance" "test_instance" {
-  ami           = "ami-005fc0f236362e99f"
-  instance_type = "t2.nano"
+data "aws_availability_zones" "available" {}
 
-  tags = {
-    Name = "test_instance"
-  }
+locals {
+  cluster_name = var.clusterName
 }
 
+#
