@@ -23,15 +23,15 @@ jobs:
         with:
           terraform_version: 1.5.5  # Replace with your desired Terraform version
 
-      # # Initialize Terraform
-      # - name: Terraform Init
-      #   working-directory: ./terraform
-      #   run: terraform init
+      # Initialize Terraform
+      - name: Terraform Init
+        working-directory: ./terraform
+        run: terraform init
 
-      # # Validate Terraform configuration
-      # - name: Terraform Validate
-      #   working-directory: ./terraform
-      #   run: terraform validate
+      # Validate Terraform configuration
+      - name: Terraform Validate
+        working-directory: ./terraform
+        run: terraform validate
 
       # # Terraform Plan
       # - name: Terraform Plan
