@@ -27,7 +27,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "gitopsbucketjay21"
+    bucket = "elasticbeanstalk-us-east-1-329599636889"
     key    = "terraform.tfstate"
     region = "us-east-1"
   }
